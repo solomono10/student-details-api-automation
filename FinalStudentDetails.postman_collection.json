@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "159f55a7-efd9-4353-833e-520063f09eaf",
+		"name": "Final Student Details",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get final students skills",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edfd42cd-db70-4695-bfff-e805f1f328e9",
+						"exec": [
+							"pm.test('verify test status 200', function(){",
+							"    pm.response.to.have.status(200);",
+							"    console.log(responseBody);",
+							"});",
+							"",
+							"pm.test('verify test status true', function(){",
+							"    const jsonData = JSON.parse(responseBody);",
+							"    pm.expect(jsonData.status).to.eql('true');",
+							"    console.log(responseBody);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/FinalStudentDetails/{{ID}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"FinalStudentDetails",
+						"{{ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

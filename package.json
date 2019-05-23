@@ -1,0 +1,24 @@
+{
+  "name": "student-details-api-testing-jenkins",
+  "version": "1.0.0",
+  "description": "again",
+  "main": "index.js",
+  "scripts": {
+    "test": "newman run FinalStudentDetails.postman_collection.json -d data.json -n 4 -e QA_environment.json -r htmlextra"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solomono10/student-details-api-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solomono10/student-details-api-automation/issues"
+  },
+  "homepage": "https://github.com/solomono10/student-details-api-automation#readme",
+  "devDependencies": {
+    "newman": "^4.5.0",
+    "newman-reporter-csv": "^1.1.1"
+  }
+}

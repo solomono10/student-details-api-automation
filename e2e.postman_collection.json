@@ -35,8 +35,8 @@
 					"script": {
 						"id": "5ca71515-c29c-4928-9786-142d1028a198",
 						"exec": [
-							"pm.globals.unset('url');",
-							"pm.globals.unset('url', 'http://thetestingworldapi.com');",
+							"// pm.environment.unset('url');",
+							"// pm.environment.set('url', 'http://thetestingworldapi.com');",
 							""
 						],
 						"type": "text/javascript"
@@ -58,11 +58,9 @@
 					"raw": "{\n    \"first_name\": \"Bob\",\n    \"middle_name\": \"Manning\",\n    \"last_name\": \"Justin\",\n    \"date_of_birth\": \"23-08-00\"\n}"
 				},
 				"url": {
-					"raw": "http://thetestingworldapi.com/api/studentsDetails/",
-					"protocol": "http",
+					"raw": "{{url}}/api/studentsDetails/",
 					"host": [
-						"thetestingworldapi",
-						"com"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -81,8 +79,9 @@
 					"script": {
 						"id": "5842b7d4-c587-4d21-a7c4-72e54f494fc2",
 						"exec": [
-							"pm.globals.unset('url');",
-							"pm.globals.unset('url', 'http://thetestingworldapi.com');"
+							"// pm.environment.unset('url');",
+							"// pm.environment.set('url', 'http://thetestingworldapi.com');",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -103,11 +102,9 @@
 					"raw": "{\n  \"Permanent_Address\": {\n    \"House_Number\": \"22\",\n    \"City\": \"London\",\n    \"State\": \"London\",\n    \"Country\": \"UK\",\n    \"PhoneNumber\": [\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      },\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      }\n    ]\n  },\n  \"Current_Address\": {\n    \"House_Number\": \"sample string 1\",\n    \"City\": \"sample string 2\",\n    \"State\": \"sample string 3\",\n    \"Country\": \"sample string 4\",\n    \"PhoneNumber\": [\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      },\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      }\n    ]\n  },\n  \"stId\": {{e2e-std-Id}}\n}"
 				},
 				"url": {
-					"raw": "http://thetestingworldapi.com/api/addresses/",
-					"protocol": "http",
+					"raw": "{{url}}/api/addresses/",
 					"host": [
-						"thetestingworldapi",
-						"com"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -138,8 +135,9 @@
 					"script": {
 						"id": "a5fae9b2-b950-40a2-824e-875d066c81f3",
 						"exec": [
-							"pm.globals.unset('url');",
-							"pm.globals.unset('url', 'http://thetestingworldapi.com');"
+							"// pm.environment.unset('url');",
+							"// pm.environment.set('url', 'http://thetestingworldapi.com');",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -160,11 +158,9 @@
 					"raw": "{\n  \"id\": {{e2e-std-Id}},\n  \"language\": [\n    \"Java\",\n    \"PHP\"\n  ],\n  \"yearexp\": \"2007\",\n  \"lastused\": \"2009\",\n  \"st_id\": {{e2e-std-Id}}\n}"
 				},
 				"url": {
-					"raw": "http://thetestingworldapi.com/api/technicalskills",
-					"protocol": "http",
+					"raw": "{{url}}/api/technicalskills",
 					"host": [
-						"thetestingworldapi",
-						"com"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -201,8 +197,9 @@
 					"script": {
 						"id": "e1f1596c-6631-4bac-8d88-3936b1c31d6a",
 						"exec": [
-							"pm.globals.unset('url');",
-							"pm.globals.unset('url', 'http://thetestingworldapi.com');"
+							"// pm.environment.unset('url');",
+							"// pm.environment.set('url', 'http://thetestingworldapi.com');",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -212,11 +209,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://thetestingworldapi.com/api/FinalStudentDetails/{{e2e-std-Id}}",
-					"protocol": "http",
+					"raw": "{{url}}/api/FinalStudentDetails/{{e2e-std-Id}}",
 					"host": [
-						"thetestingworldapi",
-						"com"
+						"{{url}}"
 					],
 					"path": [
 						"api",

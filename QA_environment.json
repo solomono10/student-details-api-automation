@@ -1,0 +1,19 @@
+{
+	"id": "49d8a162-acc7-48df-a33b-f025d1f73ac4",
+	"name": "QA",
+	"values": [
+		{
+			"key": "ID",
+			"value": "60",
+			"enabled": true
+		},
+		{
+			"key": "url",
+			"value": "http://thetestingworldapi.com",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-05-23T16:40:07.565Z",
+	"_postman_exported_using": "Postman/7.1.0"
+}
