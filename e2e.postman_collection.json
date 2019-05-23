@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "63d9de34-e432-4189-9480-2552be24b9d4",
+		"name": "e2e",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add student details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3bcb3d4-c169-480a-b84f-03d3f125a18c",
+						"exec": [
+							"// Get the responseBody",
+							"const jsondata = JSON.parse(responseBody);",
+							"",
+							"// Get the student Id from newly-created student",
+							"// const stdId = jsondata.id;",
+							"",
+							"// Set global variable with it",
+							"pm.globals.set('e2e-std-Id', jsondata.id);",
+							"",
+							"pm.test('verify status', function(){",
+							"    pm.response.to.have.status(201);",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5ca71515-c29c-4928-9786-142d1028a198",
+						"exec": [
+							"pm.globals.unset('url');",
+							"pm.globals.unset('url', 'http://thetestingworldapi.com');",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Bob\",\n    \"middle_name\": \"Manning\",\n    \"last_name\": \"Justin\",\n    \"date_of_birth\": \"23-08-00\"\n}"
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/studentsDetails/",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"studentsDetails",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add student address",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5842b7d4-c587-4d21-a7c4-72e54f494fc2",
+						"exec": [
+							"pm.globals.unset('url');",
+							"pm.globals.unset('url', 'http://thetestingworldapi.com');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Permanent_Address\": {\n    \"House_Number\": \"22\",\n    \"City\": \"London\",\n    \"State\": \"London\",\n    \"Country\": \"UK\",\n    \"PhoneNumber\": [\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      },\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      }\n    ]\n  },\n  \"Current_Address\": {\n    \"House_Number\": \"sample string 1\",\n    \"City\": \"sample string 2\",\n    \"State\": \"sample string 3\",\n    \"Country\": \"sample string 4\",\n    \"PhoneNumber\": [\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      },\n      {\n        \"Std_Code\": \"sample string 1\",\n        \"Home\": \"sample string 2\",\n        \"Mobile\": \"sample string 3\"\n      }\n    ]\n  },\n  \"stId\": {{e2e-std-Id}}\n}"
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/addresses/",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"addresses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add students technical skills",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a62de31-0682-4ae1-860a-3ccdc2f219c8",
+						"exec": [
+							"pm.test('verify status', function(){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a5fae9b2-b950-40a2-824e-875d066c81f3",
+						"exec": [
+							"pm.globals.unset('url');",
+							"pm.globals.unset('url', 'http://thetestingworldapi.com');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": {{e2e-std-Id}},\n  \"language\": [\n    \"Java\",\n    \"PHP\"\n  ],\n  \"yearexp\": \"2007\",\n  \"lastused\": \"2009\",\n  \"st_id\": {{e2e-std-Id}}\n}"
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/technicalskills",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"technicalskills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get final students details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fda6854-3b58-4659-a543-d5d9982904db",
+						"exec": [
+							"pm.test('verify status OK', function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('verify first name', function(){",
+							"    const jsonData = JSON.parse(responseBody);",
+							"    pm.expect(jsonData.data.first_name).to.eql(\"Bob\");",
+							"    console.log(jsonData);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e1f1596c-6631-4bac-8d88-3936b1c31d6a",
+						"exec": [
+							"pm.globals.unset('url');",
+							"pm.globals.unset('url', 'http://thetestingworldapi.com');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/FinalStudentDetails/{{e2e-std-Id}}",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"FinalStudentDetails",
+						"{{e2e-std-Id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
