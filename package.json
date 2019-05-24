@@ -4,7 +4,7 @@
   "description": "again",
   "main": "index.js",
   "scripts": {
-    "test": "newman run FinalStudentDetails.postman_collection.json -d data.json -n 4 -e QA_environment.json -r htmlextra"
+    "test": "newman run FinalStudentDetails.postman_collection.json -d data.json -n 4 -e QA_environment.json"
   },
   "repository": {
     "type": "git",
