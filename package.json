@@ -20,5 +20,8 @@
   "devDependencies": {
     "newman": "^4.5.0",
     "newman-reporter-csv": "^1.1.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.14"
   }
 }
